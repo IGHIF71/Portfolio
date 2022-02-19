@@ -1,12 +1,9 @@
 <!doctype html>
-<<<<<<< HEAD
 <html>
-{{job.summary}}
 
-Hello World
-</html>
 
-=======
+
+
 <html lang="en">
 {% load static %}
   <head>
@@ -59,12 +56,13 @@ Hello World
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Job Detail</h1>
-        <p class="lead text-muted">{{ job.summary }}</p>
+        <p class="lead text-muted">{{job.summary}} </p>
         <p>
-          <a href="mailto:khalilr432@gmail.com" class="btn btn-primary my-2">Email me</a>
-          <a href="https://www.linkedin.com/in/khalil-robinson-954a02180/" class="btn btn-secondary my-2">Linkedin</a>
+        
+        <img src="{{ job.image.url }}" height = 300></img>
+        <p>
+          <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a>
         </p>
-        <img src="{% static 'image0.jpeg' %}" height = 300></img>
       </div>
     </div>
   </section>
@@ -81,4 +79,3 @@ Hello World
       
   </body>
 </html>
->>>>>>> 158e5f4143de2b0f426d3bf1b9721127f383af3f

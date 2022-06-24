@@ -30,8 +30,10 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['powerful-springs-31492.herokuapp.com', '127.0.0.1']
 
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE')
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE')
 
-# Application definition
+
 
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'job',
 ]
 
@@ -126,6 +129,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
